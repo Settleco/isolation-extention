@@ -26,12 +26,10 @@ body:after {
 
 #clock {
     position: absolute;
-    bottom: 75px;
+    bottom: 60px;
     left: 75px;
     display: flex;
     flex-direction: column;
-    line-height: -1.5;
-
 }
 
 #clock .top {
@@ -42,6 +40,63 @@ body:after {
     font-size: 18vh;
     font-weight: 900;
 }
-#clock .date {
-    
+
+#widget {
+    position: absolute;
+    bottom: 40px;
+    right: 75px;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.widgetbottom {
+    display: flex;
+    width: 180px;
+    height: 60px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.widgetcenter {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.widgettop {
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: 180px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.spotify-ico{
+    position: absolute;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+.spotify-progress {
+    margin-top: 6px;
+}
+.progressbar {
+    height: 2px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, .1);
+}
+.progressbar .value {
+    width: 50%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: white;
 }
