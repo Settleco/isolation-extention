@@ -1,0 +1,10 @@
+{
+    "name": "Islolation",
+    "description": "Nope",
+    "author": "Settleco",
+    "version": "1.0",
+    "manifest_version": 3,
+    "chrome_url_overrides" : {
+        "newtabe": "src/index.html"
+      }
+  }

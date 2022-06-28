@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+body {
+    background-image: url("../assets/Background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+body:after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #210C50);
+}
+* {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+#clock {
+    position: absolute;
+    bottom: 75px;
+    left: 75px;
+    display: flex;
+    flex-direction: column;
+    line-height: -1.5;
+
+}
+
+#clock .top {
+    font-size: 7vh;
+    font-weight: 600;
+}
+#clock .bottom {
+    font-size: 18vh;
+    font-weight: 900;
+}
+#clock .date {
+    
+}
