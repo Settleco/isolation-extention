@@ -5,6 +5,9 @@
     "version": "1.0",
     "manifest_version": 3,
     "chrome_url_overrides" : {
-        "newtabe": "src/index.html"
-      }
+        "newtab": "/src/index.html"
+      },
+    "permissions": [
+    "storage"
+  ]
   }

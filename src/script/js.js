@@ -3,7 +3,7 @@
     with <3
 */
 
-const name = "Alper"; // Setting Name
+const name = "Mert"; // Setting Name
 
 let date = new Date();
 let day = date.getDate();
@@ -61,7 +61,7 @@ hourElement.innerHTML = `${hour}:${minute}`;
 // --------------------- Greetning Msg --------------------- 
 const welcomeMessageElement = document.getElementById("welcome-message");
 if (hour < 12) { 
-    welcomeMessageElement.innerHTML = "Günaydın, " + name;
+    welcomeMessageElement.innerHTML = "Günaydın, " + name + ".";
 } else if (hour < 18) {
     welcomeMessageElement.innerHTML = "Tünaydın, " + name;
 }
@@ -69,3 +69,17 @@ else {
     welcomeMessageElement.innerHTML = "İyi akşamlar, " + name;
 }
 // --------------------- Greetning Msg --------------------- 
+
+//
+
+let headers = new Headers();
+headers.append('Access-Control-Allow-Origin', 'http://localhost:8080');
+headers.append('Access-Control-Allow-Credentials', 'true');
+
+fetch('https://api.genelpara.com/embed/kripto.json',{
+    method: 'GET',
+    mode: 'cors',
+    credentials: 'include'
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
