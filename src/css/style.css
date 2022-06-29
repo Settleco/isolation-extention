@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@keyframes popup-anim {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 body {
     background-image: url("../assets/Background.png");
     background-repeat: no-repeat;
@@ -90,4 +101,13 @@ body:after {
 .radius20 {
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px; 
+}
+
+::-webkit-scrollbar {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+#settings-popup {
+    animation: popup-anim .5s ease-in-out;
 }
