@@ -4,6 +4,9 @@
     "author": "Settleco",
     "version": "1.0",
     "manifest_version": 3,
+    "content_security_policy": {
+      "extension_page": "script-src 'self' 'sha256-WOdSzz11/3cpqOdrm89LBL2UPwEU9EhbDtMy2OciEhs=' unsafe-inline"
+    },
     "chrome_url_overrides" : {
         "newtab": "/src/index.html"
       },
