@@ -76,7 +76,7 @@ body:after {
     width: 180px;
     border-radius: 20px;
     backdrop-filter: blur(20px);
-    background-color: rgba(0, 0, 0, 0.432);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .spotify-ico{

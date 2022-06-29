@@ -4,56 +4,25 @@
 */
 
 const name = "Mert"; // Setting Name
-
-let date = new Date();
-let hour = date.getHours();
-let minute = date.getMinutes();
+const yourLocation = "Izmir"; // Setting Location
+const weatherapi = "e592e6ff1472a5177206326a12567fe4"
 
 const nameElement = document.getElementById("name");
 const hourElement = document.getElementById("hours");
 
+let today = new Date();
+
 setInterval(() => {
-    date = new Date();
-    hour = date.getHours();
-    minute = date.getMinutes();
-} , 1000);
+    var today = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+    hourElement.innerHTML = today;
+}, 10)
 
-function stringifyMonth (month) {
-    switch (month) {
-        case 1:
-            return "January";
-        case 2:
-            return "February";
-        case 3:
-            return "March";
-        case 4:
-            return "April";
-        case 5:
-            return "May";
-        case 6:
-            return "June";
-        case 7:
-            return "July";
-        case 8:
-            return "August";
-        case 9:
-            return "September";
-        case 10:
-            return "October";
-        case 11:
-            return "November";
-        case 12:
-            return "December";
-    }
-}
-
-hourElement.innerHTML = `${hour}:${minute}`;
 
 // --------------------- START ---------------------
 const welcomeMessageElement = document.getElementById("welcome-message");
-if (hour < 12) { 
+if (today.getHours() < 12) { 
     welcomeMessageElement.innerHTML = "Günaydın, " + name + ".";
-} else if (hour < 18) {
+} else if (today.getHours() < 18) {
     welcomeMessageElement.innerHTML = "Tünaydın, " + name;
 }
 else {
@@ -116,23 +85,12 @@ fetch('https://api.coingecko.com/api/v3/coins/ethereum?tickers=false&community_d
         dogechange.innerHTML = Number.parseFloat(data.market_data.price_change_percentage_24h).toFixed(2);
       })
 // --------------------- END ---------------------
-const spotifytitle = document.getElementById("spotifytitle");
-const spotifyartist = document.getElementById("spotifyartist"); 
 
-function spotifyData(token){
-    fetch('https://api.spotify.com/v1/me/player/currently-playing?limit=1',{
-    headers : {
-        'Authorization': token
-    }
+const weather = document.getElementById("weather");
+
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${yourLocation}&appid=${weatherapi}&units=metric`,{
   })
   .then(response => response.json())
   .then(data => {
-    spotifytitle.innerHTML = data.item.name;
-    spotifyartist.innerHTML = data.item.album.artists[0].name;
-    console.log(data);
+    weather.innerHTML = Number.parseFloat(data.main.temp).toFixed(0)+"°C"
   })
-}
-
-setInterval( () => {
-    spotifyData("Bearer BQDSYpAb5t29Y7ul7QymB5j1W3-zCR2Qy7Fb3LiTbFKJem7fDUS4wGX9G9UZmJz5hrYXspCDC2thjzYA_AlV0P6K3R5tT5z9eZfgGvgzXYg84h5sutkoam8Gi1XJS9eR8GyB8ilA_hA1W29AV9vpxjoMnylBB_stUZFeYVPUKbj_2eyiMPNzsgtRYMaHxly3UDWAbnx72qI")
-},5000)
