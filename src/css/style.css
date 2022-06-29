@@ -28,7 +28,7 @@ body:after {
 
 #clock {
     position: absolute;
-    bottom: 60px;
+    bottom: 40px;
     left: 75px;
     display: flex;
     flex-direction: column;
