@@ -44,6 +44,11 @@ fetch('https://api.coingecko.com/api/v3/coins/bitcoin?tickers=false&community_da
   .then(data => {
     btc.innerHTML = Number.parseFloat(data.market_data.current_price.usd).toFixed(2)
     btcchange.innerHTML = Number.parseFloat(data.market_data.price_change_percentage_24h).toFixed(2)
+    if (btcchange.innerHTML > 0) {
+        btcchange.style.color = "#4AD161"
+    } else {
+        btcchange.style.color = "#ff3b30"
+    }
   })
 
 const eth = document.getElementById("eth");
@@ -57,6 +62,11 @@ fetch('https://api.coingecko.com/api/v3/coins/ethereum?tickers=false&community_d
   .then(data => {
     eth.innerHTML = Number.parseFloat(data.market_data.current_price.usd).toFixed(2);
     ethchange.innerHTML = Number.parseFloat(data.market_data.price_change_percentage_24h).toFixed(2);
+    if (ethchange.innerHTML > 0) {
+        ethchange.style.color = "#4AD161"
+    } else {
+        ethchange.style.color = "#ff3b30"
+    }
   })
 
   const ltc = document.getElementById("ltc");
@@ -70,6 +80,11 @@ fetch('https://api.coingecko.com/api/v3/coins/ethereum?tickers=false&community_d
     .then(data => {
         ltc.innerHTML = Number.parseFloat(data.market_data.current_price.usd).toFixed(2);
         ltcchange.innerHTML = Number.parseFloat(data.market_data.price_change_percentage_24h).toFixed(2);
+        if (ltcchange.innerHTML > 0) {
+            ltcchange.style.color = "#4AD161"
+        } else {
+            ltcchange.style.color = "#ff3b30"
+        }
     })
 
     const doge = document.getElementById("doge");
@@ -83,6 +98,11 @@ fetch('https://api.coingecko.com/api/v3/coins/ethereum?tickers=false&community_d
       .then(data => {
         doge.innerHTML = Number.parseFloat(data.market_data.current_price.usd).toFixed(4);
         dogechange.innerHTML = Number.parseFloat(data.market_data.price_change_percentage_24h).toFixed(2);
+        if (dogechange.innerHTML > 0) {
+            dogechange.style.color = "#4AD161"
+        } else {
+            dogechange.style.color = "#ff3b30"
+        }
       })
 // --------------------- END ---------------------
 
