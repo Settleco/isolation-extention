@@ -15,14 +15,14 @@
             fetch("https://ipinfo.io/json").then(function (response) {
                 return response.json();
             }).then(function (data) {
-                localStorage.setItem("location", data.city);
+                localStorage.setItem("location", encodeURI(data.city));
                 window.location.reload();
             });
         }
         
         function setSettings() {
             localStorage.setItem("name", nameInput?.value  || localStorage.getItem("name") || undefined);
-            localStorage.setItem("location", locationInput?.value || localStorage.getItem("location") || undefined);
+            localStorage.setItem("location", (locationInput?.value).toLowerCase() || localStorage.getItem("location") || undefined);
             localStorage.setItem("weatherapi", weatherapiInput?.value || localStorage.getItem("weatherapi") || undefined);
             window.location.reload();
         }
@@ -36,7 +36,7 @@
         const weatherapiInput = document.getElementById("api-input");
         
         const setcity = document.getElementById("city");
-        setcity.innerHTML = yourLocation;
+        setcity.innerHTML = firstUpperCase(yourLocation);
     
         document.getElementById("settings-button").addEventListener('click', showSettings);
         document.getElementById("setSettings-button").addEventListener('click', setSettings);
@@ -60,7 +60,7 @@
         
         setInterval(() => {
             getTime()
-        }, 500)
+        }, 1000)
         
         
         // --------------------- START ---------------------
@@ -150,14 +150,44 @@
                 }
             })
         // --------------------- END ---------------------
-    
+        
         function weather(yourLocation, weatherapi) {
+            const images = {
+                "01d": "https://www.gstatic.com/images/icons/material/apps/weather/2x/sunny_dark_color_96dp.png",
+                "01n": "https://www.gstatic.com/images/icons/material/apps/weather/2x/clear_night_dark_color_96dp.png",
+                "02d": "http://www.gstatic.com/images/icons/material/apps/weather/2x/partly_cloudy_dark_color_96dp.png",
+                "02n": "http://www.gstatic.com/images/icons/material/apps/weather/2x/partly_cloudy_night_dark_color_96dp.png",
+                "03d": "http://www.gstatic.com/images/icons/material/apps/weather/2x/cloudy_dark_color_96dp.png",
+                "03n": "http://www.gstatic.com/images/icons/material/apps/weather/2x/mostly_cloudy_night_dark_color_96dp.png",
+                "04d": "http://www.gstatic.com/images/icons/material/apps/weather/2x/partly_cloudy_dark_color_96dp.png",
+                "04n": "http://www.gstatic.com/images/icons/material/apps/weather/2x/partly_cloudy_night_dark_color_96dp.png",
+                "09d": "http://www.gstatic.com/images/icons/material/apps/weather/2x/showers_rain_dark_color_96dp.png",
+                "09n": "http://www.gstatic.com/images/icons/material/apps/weather/2x/scattered_showers_night_dark_color_96dp.png",
+                "10d": "http://www.gstatic.com/images/icons/material/apps/weather/2x/showers_rain_dark_color_96dp.png",
+                "10n": "http://www.gstatic.com/images/icons/material/apps/weather/2x/scattered_showers_night_dark_color_96dp.png",
+                "11d": "http://www.gstatic.com/images/icons/material/apps/weather/2x/isolated_scattered_tstorms_day_dark_color_96dp.png",
+                "11n": "http://www.gstatic.com/images/icons/material/apps/weather/2x/isolated_scattered_tstorms_night_dark_color_96dp.png",
+                "13d": "http://www.gstatic.com/images/icons/material/apps/weather/2x/snow_showers_snow_dark_color_96dp.png",
+                "13n": "http://www.gstatic.com/images/icons/material/apps/weather/2x/snow_showers_snow_dark_color_96dp.png",
+                "50d": "http://www.gstatic.com/images/icons/material/apps/weather/2x/haze_fog_dust_smoke_dark_color_96dp.png",
+                "50n": "http://www.gstatic.com/images/icons/material/apps/weather/2x/haze_fog_dust_smoke_dark_color_96dp.png"
+            }
             const weather = document.getElementById("weather");
             if (!yourLocation || !weatherapi) return weather.innerHTML = Number.parseFloat(0) + "°C"
-            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${yourLocation}&appid=${weatherapi}&units=metric`)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(yourLocation)}&appid=${weatherapi}&units=metric`)
                 .then(response => response.json())
                 .then(data => {
-                    weather.innerHTML = Number.parseFloat(data?.main?.temp || 0).toFixed(0) + "°C"
+                    weather.innerHTML = Number.parseFloat(data?.main?.temp || 0).toFixed(0) + "°C" //data.weather[0].icon
+                    document.getElementById("weather_img").src = images[data?.weather[0]?.icon || "01d"]
                 })
         }
         weather(yourLocation, weatherapi);
+
+        function firstUpperCase(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+
+        let = [
+            {"name": "Github", "link": "httpssdasda.sadasd.com"}
+        ]
