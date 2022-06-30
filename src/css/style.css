@@ -13,7 +13,7 @@
 body {
     background-image: url("../assets/Background.png");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
     background-position: center;
     background-attachment: fixed;
     padding: 0 !important;
@@ -43,14 +43,15 @@ body:after {
     left: 75px;
     display: flex;
     flex-direction: column;
+    line-height: 1;
 }
 
 #clock .top {
-    font-size: 7vh;
+    font-size: 50px;
     font-weight: 600;
 }
 #clock .bottom {
-    font-size: 18vh;
+    font-size: 100px;
     font-weight: 900;
 }
 
@@ -98,7 +99,7 @@ body:after {
     color: white;
 }
 
-.radius20 {
+.radius-bottom-20 {
     border-bottom-right-radius: 20px;
     border-bottom-left-radius: 20px; 
 }
@@ -108,6 +109,7 @@ body:after {
     visibility: hidden;
     opacity: 0;
   }
+
 #settings-popup {
     animation: popup-anim .5s ease-in-out;
 }
