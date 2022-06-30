@@ -1,16 +1,19 @@
 {
     "name": "Islolation",
     "description": "Nope",
-    "author": "Settleco",
+    "author": "Settleco.net",
     "version": "1.0",
     "manifest_version": 3,
-    "content_security_policy": {
-      "extension_page": "script-src 'self' 'sha256-WOdSzz11/3cpqOdrm89LBL2UPwEU9EhbDtMy2OciEhs=' unsafe-inline"
+    "icons": { 
+      "16": "/src/assets/meta/transparant_zoom/16.png",
+      "32": "/src/assets/meta/transparant_zoom/32.png",
+      "48": "/src/assets/meta/transparant_zoom/48.png",
+      "128": "/src/assets/meta/transparant_zoom/128.png"
     },
     "chrome_url_overrides" : {
         "newtab": "/src/index.html"
       },
     "permissions": [
-    "storage"
-  ]
+      "storage"
+    ]
   }
