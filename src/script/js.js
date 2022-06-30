@@ -32,8 +32,10 @@
     
     const setcity = document.getElementById("city");
     setcity.innerHTML = yourLocation;
-    
-    
+
+    document.getElementById("settings-button").addEventListener('click', showSettings);
+    document.getElementById("setSettings-button").addEventListener('click', setSettings);
+
     function showSettings() {
         if (settingsPopup.style.display == "none") {
             settingsPopup.style.display = "flex";
@@ -45,14 +47,7 @@
     function getTime() {
         var today = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
         hourElement.innerHTML = today;
-    }
-    
-    /*--------------*
-    *               |  
-    *Mertin odası   |
-    *               | 
-    ----------------*/
-    
+    }    
     
     let today = new Date();
     
