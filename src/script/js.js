@@ -172,13 +172,15 @@
                 "50d": "http://www.gstatic.com/images/icons/material/apps/weather/2x/haze_fog_dust_smoke_dark_color_96dp.png",
                 "50n": "http://www.gstatic.com/images/icons/material/apps/weather/2x/haze_fog_dust_smoke_dark_color_96dp.png"
             }
+
+            const getimg = document.getElementById("weather_img")
             const weather = document.getElementById("weather");
             if (!yourLocation || !weatherapi) return weather.innerHTML = Number.parseFloat(0) + "°C"
             fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(yourLocation)}&appid=${weatherapi}&units=metric`)
                 .then(response => response.json())
                 .then(data => {
                     weather.innerHTML = Number.parseFloat(data?.main?.temp || 0).toFixed(0) + "°C" //data.weather[0].icon
-                    document.getElementById("weather_img").src = images[data?.weather[0]?.icon || "01d"]
+                    getimg.src = images[data?.weather[0]?.icon || "01d"]
                 })
         }
         weather(yourLocation, weatherapi);

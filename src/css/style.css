@@ -59,9 +59,14 @@ body:after {
     position: absolute;
     bottom: 40px;
     right: 75px;
-    display: flex;
-    flex-direction: column;
     gap: 2vh;
+}
+
+.widgetfav {
+    display: flex;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(255, 255, 255, .1);
 }
 
 .widgetbottom {
@@ -71,24 +76,25 @@ body:after {
     border-radius: 20px;
     backdrop-filter: blur(20px);
     background-color: rgba(255, 255, 255, .1);
+    display: grid;
+    justify-self: end;
 }
 
 .widgetcenter {
-    display: flex;
-    flex-direction: column;
     width: 180px;
     border-radius: 20px;
     backdrop-filter: blur(20px);
     background-color: rgba(255, 255, 255, .1);
+    display: grid;
+    justify-self: end;
 }
 
 .widgettop {
-    display: flex;
-    flex-direction: column;
     width: 180px;
     border-radius: 20px;
     backdrop-filter: blur(20px);
     background-color: rgba(0, 0, 0, 0.3);
+    justify-self: end;
 }
 
 .spotify-ico{
