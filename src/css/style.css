@@ -119,3 +119,7 @@ body:after {
 #settings-popup {
     animation: popup-anim .5s ease-in-out;
 }
+
+#simple-icons {
+    filter: grayscale(1) invert(0.9); 
+}
