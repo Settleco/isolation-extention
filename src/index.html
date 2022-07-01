@@ -17,14 +17,16 @@
         <button id="setSettings-button"  class="flex items-center rounded-md px-10 p-2 bg-stone-600/25 h-full">Save<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button>
     </div>
     
-    <div class="flex group">
+    <div class="flex ">
         <div id="clock">
-            <p class="top" id="welcome-message"></p>
-            <div class="flex place-items-end">
-                <p id="hours" class="bottom">00:00</p>
-                <button id="settings-button" class="opacity-0 group-hover:opacity-100 p-1 transition-all rounded-full hover:bg-stone-500/25">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg>
-                </button>
+            <div class="group">
+                <p class="top" id="welcome-message"></p>
+                <div class="flex place-items-end">
+                    <p id="hours" class="bottom">00:00</p>
+                    <button id="settings-button" class="opacity-0 group-hover:opacity-100 p-1 transition-all rounded-full hover:bg-stone-500/25">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </div>
             </div>
         </div>
     
@@ -137,7 +139,7 @@
                 </div>
             </div>
 
-            <div class="widgetfav flex items-center justify-center space-x-4 p-4">
+            <div id="fav" class="widgetfav flex items-center justify-center space-x-4 p-4">
                 <div class="">
                     <a href="#" class="grid justify-items-center space-y-1">
                         <img class="w-8" src="https://icon.horse/icon/settleco.net" alt="">
@@ -146,19 +148,20 @@
                 </div>
                 <div class="">
                     <a href="#" class="grid justify-items-center space-y-1">
-                        <img class="h-8 w-8 rounded-full" src="https://icon.horse/icon/Github.com" alt="">
+                        
+                        <img width="32" height="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/github.svg" alt="">
                         <p class="font-medium">Github</p>
                     </a>
                 </div>
                 <div class="">
                     <a href="#" class="grid justify-items-center space-y-1">
-                        <img class="w-8 h-8" src="https://icon.horse/icon/npmjs.com" alt="">
+                        <img width="32" height="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/npm.svg" alt="">
                         <p class="font-medium">Npm</p>
                     </a>
                 </div>
                 <div class="">
                     <a href="#" class="grid justify-items-center space-y-1">
-                        <img class="w-8 h-8" src="https://icon.horse/icon/Youtube.com" alt="">
+                        <img width="32" height="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/youtube.svg" alt="">
                         <p class="font-medium">Youtube</p>
                     </a>
                 </div>
