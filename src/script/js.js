@@ -39,6 +39,7 @@
         setcity.innerHTML = firstUpperCase(yourLocation);
     
         document.getElementById("settings-button").addEventListener('click', showSettings);
+        document.getElementById("close-button").addEventListener('click', showSettings);
         document.getElementById("setSettings-button").addEventListener('click', setSettings);
     
         function showSettings() {
@@ -188,8 +189,3 @@
         function firstUpperCase(str) {
             return str.charAt(0).toUpperCase() + str.slice(1);
         }
-
-
-        let = [
-            {"name": "Github", "link": "httpssdasda.sadasd.com"}
-        ]
