@@ -15,7 +15,7 @@
             fetch("https://ipinfo.io/json").then(function (response) {
                 return response.json();
             }).then(function (data) {
-                localStorage.setItem("location", encodeURI(data.city));
+                localStorage.setItem("location", data.city);
                 window.location.reload();
             });
         }
