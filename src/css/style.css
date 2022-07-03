@@ -123,3 +123,7 @@ body:after {
 #simple-icons {
     filter: grayscale(1) invert(0.9); 
 }
+
+#fav img {
+    border-radius: 100%;
+}
