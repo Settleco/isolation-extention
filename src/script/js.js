@@ -42,7 +42,7 @@
             `
             <div class="">
             <a href="#" class="grid justify-items-center space-y-1">
-                <img id="simple-icons" width="32" height="32" src="https://icon.horse/icon/${(urlInput?.value).replace("https://", "").replace("www.", "").replace("http://", "")}" alt="${urlInput?.value}">
+                <img  width="32" height="32" src="https://icon.horse/icon/${(urlInput?.value).replace("https://", "").replace("www.", "").replace("http://", "")}" alt="${urlInput?.value}">
                 <p class="font-medium">${firstUpperCase(urlNameInput?.value)}</p>
             </a>
             </div>
@@ -57,12 +57,23 @@
             `
             <div class="">
             <a href="#" class="grid justify-items-center space-y-1">
-                <img id="simple-icons" width="32" height="32" src="https://icon.horse/icon/${(element?.url).replace("https://", "").replace("www.", "").replace("http://", "")}" alt="${element?.url}">
+                <img width="32" height="32" src="https://icon.horse/icon/${(element?.url).replace("https://", "").replace("www.", "").replace("http://", "")}" alt="${element?.url}">
                 <p class="font-medium">${firstUpperCase(element?.name)}</p>
             </a>
             </div>
             `)
         });
+
+        function delete_urls() {
+            let data = JSON.parse(localStorage.getItem("urls"))
+            let dataNew = []
+            data.forEach(element => {
+                if (element.name == "github") return
+                dataNew.push(element)
+            });
+            localStorage.setItem("urls", JSON.stringify(dataNew))
+        }
+        delete_urls();
         
         
         const nameElement = document.getElementById("name");
