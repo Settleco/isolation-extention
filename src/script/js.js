@@ -26,12 +26,52 @@
             localStorage.setItem("weatherapi", weatherapiInput?.value || localStorage.getItem("weatherapi") || undefined);
             window.location.reload();
         }
+
+        function add() {
+            if (!urlInput?.value || !urlNameInput?.value) return
+            if (!localStorage.getItem("urls")) localStorage.setItem("urls", "[]");
+            let data = JSON.parse(localStorage.getItem("urls"))
+            
+            data.push({
+                name: urlNameInput?.value,
+                url: urlInput?.value,
+            })
+            localStorage.setItem("urls", JSON.stringify(data))
+        
+            document.getElementById('fav').insertAdjacentHTML('afterbegin', 
+            `
+            <div class="">
+            <a href="#" class="grid justify-items-center space-y-1">
+                <img id="simple-icons" width="32" height="32" src="https://icon.horse/icon/${(urlInput?.value).replace("https://", "").replace("www.", "").replace("http://", "")}" alt="${urlInput?.value}">
+                <p class="font-medium">${firstUpperCase(urlNameInput?.value)}</p>
+            </a>
+            </div>
+            `)
+            
+        }
+
+        let urldata = JSON.parse(localStorage.getItem("urls") || "[]");
+        
+        urldata.forEach(element => {
+            document.getElementById('fav').insertAdjacentHTML('afterbegin', 
+            `
+            <div class="">
+            <a href="#" class="grid justify-items-center space-y-1">
+                <img id="simple-icons" width="32" height="32" src="https://icon.horse/icon/${(element?.url).replace("https://", "").replace("www.", "").replace("http://", "")}" alt="${element?.url}">
+                <p class="font-medium">${firstUpperCase(element?.name)}</p>
+            </a>
+            </div>
+            `)
+        });
         
         
         const nameElement = document.getElementById("name");
         const hourElement = document.getElementById("hours");
         const settingsPopup = document.getElementById('settings-popup');
+        const shortPopup = document.getElementById('settings-short-popup');
         const nameInput = document.getElementById("name-input");
+        const urlInput = document.getElementById("url-input");
+        const urlNameInput = document.getElementById("url-name-input");
         const locationInput = document.getElementById("city-input");
         const weatherapiInput = document.getElementById("api-input");
         
@@ -40,7 +80,12 @@
     
         document.getElementById("settings-button").addEventListener('click', showSettings);
         document.getElementById("close-button").addEventListener('click', showSettings);
+
+        document.getElementById("settings-short-button").addEventListener('click', showShorts);
+        document.getElementById("settings-short-button").addEventListener('click', showShorts);
+
         document.getElementById("setSettings-button").addEventListener('click', setSettings);
+        document.getElementById("addUrls-button").addEventListener('click', add);
     
         function showSettings() {
             if (settingsPopup.style.display == "none") {
@@ -50,6 +95,16 @@
                 settingsPopup.style.display = "none";
             }
         }
+
+        function showShorts() {
+            if (shortPopup.style.display == "none") {
+                shortPopup.style.display = "flex";
+            }
+            else {
+                shortPopup.style.display = "none";
+            }
+        }
+
         function getTime() {
             var today = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
             hourElement.innerHTML = today;
